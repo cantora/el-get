@@ -69,7 +69,7 @@ into the package :localname option or its `file-name-nondirectory' part."
         (url-retrieve url 'el-get-http-retrieve-callback
                       `(,package ,url ,post-install-fun ,dest ,el-get-sources))
 
-      (with-current-buffer (url-retrieve-synchronously url)
+      (with-current-buffer (url-retrieve-synchronously url t)
         (el-get-http-retrieve-callback
          nil package url post-install-fun dest el-get-sources)))))
 
